@@ -1,0 +1,14 @@
+on: [push]
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+    name: Build and Push
+    steps:
+      - name: Build step
+        id: build
+        uses: actions/build_and_push@v1
+        with:
+          build-inputs: ""
+      - name: Get the output time
+        run: echo "The time was ${{ steps.build.outputs.time }}"
