@@ -37,9 +37,13 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
+    - name: Set Image Tag
+      run: |
+        export DATE=$(date +%s)
+
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag django-hello-world:$(date +%s)
+      run: docker build . --file Dockerfile --tag django-hello-world:${{ DATE }}
 
     - name: Push the Dockerimage to Dockerhub
       run: |
-        docker push ${{ secrets.DOCKER_USER}}/django-hello-world
+        docker push ${{ secrets.DOCKER_USER}}/django-hello-world:${{ DATE }}
