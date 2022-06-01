@@ -40,7 +40,7 @@ jobs:
 
     - name: Build the Docker image
       env:
-        IMAGE_TAG: ${{join(steps.run_tests.outputs.*, '')}}
+        IMAGE_TAG: ${{join(steps.set_image_tag.outputs.*, '')}}
       run: |
         echo $IMAGE_TAG
         docker build . --file Dockerfile --tag django-hello-world:$IMAGE_TAG
