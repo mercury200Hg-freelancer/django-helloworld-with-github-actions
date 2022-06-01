@@ -42,8 +42,8 @@ jobs:
         export DATE=$(date +%s)
 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag django-hello-world:${{ DATE }}
+      run: docker build . --file Dockerfile --tag django-hello-world:${{ env.DATE }}
 
     - name: Push the Dockerimage to Dockerhub
       run: |
-        docker push ${{ secrets.DOCKER_USER}}/django-hello-world:${{ DATE }}
+        docker push ${{ secrets.DOCKER_USER}}/django-hello-world:${{ env.DATE }}
