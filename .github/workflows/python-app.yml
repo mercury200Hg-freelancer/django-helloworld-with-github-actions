@@ -24,7 +24,7 @@ jobs:
       run: |
         echo "::set-output name=HEAD::$(git rev-parse --short HEAD)"
         echo "::set-output name=TIMESTAMP::$(git show -s --format=%ct $(git rev-parse --short HEAD) )"
-        echo "::set-output name=BRANCH::$(git rev-parse --abbrev-ref $(git rev-parse --short HEAD) )"
+        echo "::set-output name=BRANCH::$(git rev-parse --abbrev-ref HEAD)"
       id: repo_info
 
     - name: Generate Docker Labels
