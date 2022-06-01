@@ -35,7 +35,7 @@ jobs:
     - name: Set Image Tag
       run: |
         export DATE=$(date +%s)
-        echo $DATE
+        echo "::set-output $DATE"
       id: set_image_tag
 
     - name: Build the Docker image
