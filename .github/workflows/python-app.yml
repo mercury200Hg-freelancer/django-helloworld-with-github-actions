@@ -29,9 +29,9 @@ jobs:
 
     - name: Generate Docker Labels
       run: |
-        labels="--labels \"HEAD=${{ steps.repo_info.outputs.HEAD }}\" \
-                --labels \"TIMESTAMP=${{ steps.repo_info.outputs.TIMESTAMP }}\" \
-                --labels \"BRANCH=${{ steps.repo_info.outputs.BRANCH }}\""
+        labels="--label \"HEAD=${{ steps.repo_info.outputs.HEAD }}\" \
+                --label \"TIMESTAMP=${{ steps.repo_info.outputs.TIMESTAMP }}\" \
+                --label \"BRANCH=${{ steps.repo_info.outputs.BRANCH }}\""
         echo "::set-output name=LABELS::$labels"
       id: docker_labels
 
