@@ -22,9 +22,14 @@ jobs:
 
       - name: List the contents of directory
         run: |
-          ls ./
-          ls ../
-          ls ../../
+          pwd
+          ls
+          cd ..
+          pwd
+          ls
+          cd ..
+          pwd
+          ls
 
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
